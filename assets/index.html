@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Agua que se Hereda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="top-nav">
+    <nav>
+      <a href="#quienes-somos" class="nav-item">
+        <img src="assets/images/icono-quienes-somos.png" alt="Quienes somos">
+        <span>Quienes somos</span>
+      </a>
+      <a href="#lado-a" class="nav-item">
+        <img src="assets/images/icono-lado-a.png" alt="El lado a de la semana">
+        <span>El lado a de <br> la semana</span>
+      </a>
+      <a href="#contacto" class="nav-item">
+        <img src="assets/images/icono-contacto.png" alt="Contacto">
+        <span>contacto</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    
+    <section class="col-left">
+      <div class="logo-wrapper">
+        <img src="assets/images/logo-titulo.png" alt="El Agua que se Hereda" class="img-logo">
+      </div>
+
+      <div class="text-block">
+        <h1>¡SINTONIZA LAS<br>MEMORIAS DEL AGUA!</h1>
+        <p>Te invitamos a descubrir las historias que nos comparten nuestros estudiantes<br>
+        Selecciona cualquier punto sobre el mapa y reproduce ambos lados del caset<br>
+        En el lado A escucharas la historia del abuelo y el lado B la reflexión del estudiante</p>
+        
+        <a href="https://open.spotify.com/playlist/0dzpXY9v7WVFKcOuUVMcjr?si=eWgchVbfQY6ppBU2RBGSGQ&utm_source=copy-link&pi=9PlFYo-sR1mrX" target="_blank" class="btn-spotify">
+          <span>PLAYLIST SPOTIFY</span>
+        </a>
+      </div>
+
+      <div class="card-ideam">
+        <img src="assets/images/logo-ideam.png" alt="IDEAM" class="img-ideam">
+        <p>Las condiciones del fenómeno de El Niño se encuentran en proceso de consolidación y fortalecimiento en el país, con una probabilidad superior al 90 % de alcanzar una intensidad "muy fuerte" entre finales de 2026 y el primer trimestre de 2027.</p>
+      </div>
+
+      <div class="historias-section">
+        <h3>HISTORIAS DESTACADAS</h3>
+        <div class="carrusel-wrapper">
+          <button class="arrow-btn left">◄</button>
+          <div class="carrusel-track">
+            <div class="frame"><img src="assets/images/foto1.png" alt="Foto 1"></div>
+            <div class="frame"><img src="assets/images/foto2.png" alt="Foto 2"></div>
+            <div class="frame"><img src="assets/images/foto3.png" alt="Foto 3"></div>
+          </div>
+          <button class="arrow-btn right">►</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-right">
+      
+      <div class="casete-card hidden" id="casete-card">
+        <button class="btn-cerrar" onclick="cerrarCasete()">×</button>
+
+        <h2 id="titulo-historia">Laura y su abuelo Pedro</h2>
+        <div class="casete-body">
+          <div class="casete-img-box" id="casete-box">
+            <img src="assets/images/casete.png" alt="Casete" id="casete-img">
+          </div>
+          <div class="casete-controls">
+            <div class="lado-control" onclick="reproducirLado('A')">
+              <span>Escucha el lado A</span>
+              <button class="play-btn">▶ ılı|ıl</button>
+            </div>
+            <div class="lado-control" onclick="reproducirLado('B')">
+              <span>Escucha el lado B</span>
+              <button class="play-btn">▶ ılı|ıl</button>
+            </div>
+          </div>
+        </div>
+        <div class="dato-ideam-bar" id="leyenda-dato">dato del ideam</div>
+      </div>
+
+      <div class="mapa-wrapper">
+        <img src="assets/images/mapa-desplegado.png" alt="Mapa interactivo" class="mapa-img">
+        
+        <button class="map-pin" style="top: 15.5%; left: 78%;" onclick="cargarHistoria('zona-1')"></button>
+        <button class="map-pin" style="top: 65%; left: 38.5%;" onclick="cargarHistoria('zona-2')"></button>
+        <button class="map-pin" style="top: 49%; left: 63%;" onclick="cargarHistoria('zona-3')"></button>
+      </div>
+
+      <div class="pin-gigante">
+        <img src="assets/images/pin-mapa.png" alt="Pin Mapa Grande">
+      </div>
+    </section>
+          <div class="estrella-gigante">
+        <img src="assets/images/estrella-gigante.png" alt="Estrella Gigante">
+      </div>
+    </section>
+          <div class="mano-gigante">
+        <img src="assets/images/mano-gigante.png" alt="Mano Gigante">
+      </div>
+    </section>
+
+  </main>
+
+  <audio id="audio-player"></audio>
+  <script src="script.js"></script>
+</body>
+</html>

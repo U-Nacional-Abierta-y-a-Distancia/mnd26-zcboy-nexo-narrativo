@@ -1,0 +1,550 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Fredoka', cursive, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fdfbf7;
+  color: #000;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 40px;
+  justify-content: space-between;
+}
+
+/* NAVEGACIÓN SUPERIOR */
+.top-nav {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+  height: 50px;
+}
+
+.top-nav nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 1.45rem;
+}
+
+.nav-item img {
+  height: 95px;
+  width: auto;
+  object-fit: contain;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 750px 1fr;
+  gap: 20px;
+  height: 88vh;
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.col-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 5px;
+}
+/* LADO IZQIERDO */
+.img-logo {
+  max-width: 410px;
+  height: auto;
+  margin-top: -30px;
+}
+
+.text-block h1 {
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: -10px 0px 0px;
+  letter-spacing: -0.5px;
+}
+
+.text-block p {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.btn-spotify {
+  display: inline-flex;
+  align-items: center;
+  background-color: #00f2c3;
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.8rem;
+  padding: 10px 45px;
+  border: 3px solid #000;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.card-ideam {
+  background: #fff;
+  margin-top: 10px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 700px;
+}
+
+.img-ideam {
+  width: 65px;
+  height: auto;
+}
+
+.card-ideam p {
+  font-size: 1.0rem;
+  line-height: 1.2;
+}
+
+/* CARRUSEL DE HISTORIAS */
+
+.historias-section {
+  width: 100%;
+}
+
+.historias-section h3 {
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+
+.carrusel-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #ff3385;
+  padding: 5px;
+  border: 3px solid #000;
+  width: 750px;
+  margin-bottom: 120px;
+}
+
+.carrusel-track {
+  display: flex;
+  gap: 6px;
+  overflow: hidden;
+  width: 100%;
+  justify-content: center;
+}
+
+.frame {
+  border: 2px solid #000;
+  background: #000;
+  width: 200px;
+  height: 125px;
+  flex-shrink: 0;
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.arrow-btn {
+  background: #ffcc00;
+  border: 2px solid #000;
+  width: 24px;
+  height: 40px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+/* LADO DERECHO */
+.col-right {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
+.mapa-wrapper {
+  position: relative;
+  display: inline-block;
+  height: 82vh;
+}
+
+.mapa-img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+/* ===================================================
+   REPRODUCTOR CASETE Y CLASE OCULTA (.hidden)
+   =================================================== */
+
+/* Oculta la tarjeta por defecto */
+.casete-card.hidden {
+  display: none !important;
+}
+
+.casete-card {
+  position: absolute;
+  top: 10%;
+  left: -120px;
+  z-index: 20; /* Se superpone claramente sobre el mapa */
+  background-color: #f3e3ca;
+  border: 3px solid #000;
+  border-radius: 8px;
+  padding: 12px 25px;
+  width: 400px;
+  box-shadow: 6px 6px 0px rgba(0,0,0,0.25);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* BOTÓN DE CIERRE (X) EN LA ESQUINA SUPERIOR DERECHA */
+.btn-cerrar {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: #ff3385;
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-cerrar:hover {
+  background-color: #ff0055;
+  transform: scale(1.1);
+}
+
+.casete-card h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #000;
+  padding-right: 25px; /* Deja espacio para que no tape el botón de la equis */
+}
+
+.casete-body {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.casete-img-box img {
+  width: 200px;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.casete-img-box img {
+  width: 160px;
+  height: auto;
+  transition: transform 0.6s ease; /* Controla la suavidad del giro */
+}
+
+/* Estado fijo cuando está en el Lado B */
+.casete-img-box.girado img {
+  transform: rotateY(180deg);
+}
+
+.casete-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lado-control {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.play-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.dato-ideam-bar {
+  margin-top: 10px;
+  background: #fff;
+  border: 2px solid #000;
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 4px;
+}
+
+.map-pin {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #00f2c3;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  animation: pulso 1.2s infinite alternate;
+  z-index: 5;
+}
+
+@keyframes pulso {
+  0% { transform: translate(-50%, -50%) scale(0.9); box-shadow: 0 0 0px #00f2c3; }
+  100% { transform: translate(-50%, -50%) scale(1.3); box-shadow: 0 0 10px #ff3385; }
+}
+
+.pin-gigante {
+  position: absolute;
+  bottom: 150px;
+  right: 50px;
+  z-index: 12;
+}
+
+.pin-gigante img {
+  height: 120px;
+  width: auto;
+}
+
+.mano-gigante {
+  position: absolute;
+  bottom: 30%;
+  right: 35%;
+  z-index: 12;
+}
+
+.mano-gigante img {
+  height: 120px;
+  width: auto;
+}
+
+.estrella-gigante {
+  position: absolute;
+  bottom: 70%;
+  right: -40px;
+  z-index: 12;
+}
+
+.estrella-gigante img {
+  height: 120px;
+  width: auto;
+}
+
+.icono-ola {
+  position: absolute;
+  bottom: 0%;
+  right: 90%;
+  z-index: 12;
+}
+
+.icono-ola img {
+  height: 120px;
+  width: auto;
+}
+
+/* ===================================================
+   MEDIA QUERY PARA LAPTOPS Y PANTALLAS (Hasta 1600px)
+   =================================================== */
+@media (max-width: 1600px) {
+
+  body { padding: 10px 25px; }
+  .top-nav { height: 40px; }
+  .nav-item { font-size: 1.1rem; }
+  .nav-item img { height: 38px; }
+
+  .main-container {
+    grid-template-columns: 480px 1fr;
+    height: 90vh;
+  }
+
+  .img-logo { max-width: 220px; margin-top: 0px; }
+  .text-block h1 { font-size: 2.1rem; margin-top: 0px; }
+  .text-block p { font-size: 0.85rem; margin-bottom: 8px; }
+  .btn-spotify { font-size: 1.1rem; padding: 8px 22px; }
+  .card-ideam { max-width: 450px; padding: 8px 12px; }
+  .img-ideam { width: 50px; }
+  .card-ideam p { font-size: 0.7rem; }
+  .historias-section h3 { font-size: 1.3rem; }
+  .carrusel-wrapper { width: 480px; margin-bottom: 10px; }
+  .frame { width: 110px; height: 55px; }
+  .mapa-wrapper { height: 76vh; }
+
+  .casete-card {
+    width: 280px;
+    left: -50px;
+    top: 6%;
+    padding: 8px 12px;
+  }
+
+  .casete-card h2 { font-size: 1.05rem; }
+  .casete-img-box img { width: 100px; }
+  .lado-control { font-size: 0.75rem; }
+  .pin-gigante img { height: 85px; }
+}
+
+/* ===================================================
+   MEDIA QUERY PARA TELÉFONOS MÓVILES (Hasta 768px)
+   =================================================== */
+@media (max-width: 768px) {
+
+  html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  body { padding: 15px 4% !important; }
+
+  .top-nav {
+    justify-content: center;
+    height: auto;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .top-nav nav {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-item { font-size: 0.85rem; }
+  .nav-item img { height: 26px; }
+
+  .main-container {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    width: 100% !important;
+    gap: 25px;
+  }
+
+  .col-left {
+    width: 100% !important;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .img-logo { max-width: 65% !important; }
+  .text-block h1 { font-size: 1.7rem; line-height: 1.15; }
+  .text-block p { font-size: 0.85rem; }
+
+  .btn-spotify {
+    font-size: 0.95rem;
+    padding: 10px 10%;
+    width: 90%;
+    justify-content: center;
+  }
+
+  .card-ideam {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .img-ideam { width: 50px; }
+  .card-ideam p { font-size: 0.7rem; }
+
+  .historias-section { width: 100% !important; }
+  .historias-section h3 { font-size: 1.2rem; }
+
+  .carrusel-wrapper {
+    width: 100% !important;
+    padding: 4px;
+  }
+
+  .carrusel-track { gap: 4px; width: 100%; }
+  .frame { width: 28% !important; height: 50px; }
+
+  .col-right {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin-top: 10px;
+  }
+
+  /* CASETE EMERGENTE EN CELULAR AL 100% DE ANCHO */
+  .casete-card {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 15px;
+    padding: 12px;
+  }
+
+  .casete-card h2 { font-size: 1.1rem; }
+  .casete-img-box img { width: 200px; }
+  .lado-control { font-size: 0.8rem; }
+
+  .mapa-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  .mapa-img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .pin-gigante { right: 0px; bottom: 10px; }
+  .pin-gigante img { height: 60px; }
+
+  .mano-gigante { right: 78%; bottom: 10%; }
+  .mano-gigante img { height: 60px; }
+
+  .estrella-gigante { right: 0px; bottom: 25%; }
+  .estrella-gigante img { height: 60px; }
+
+  .icono-ola { right: 0px; bottom: 0px; }
+  .icono-ola img { height: 60px; }
+}
